@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="col-12 col-sm-6 m-auto">
+    <div class="card">
+        <div style="text-align: center;" class="card-header">
+            <h2>About of Student</h2>
+        </div>
+        <div class="card-body">
+            <div class="position-relative form-group">
+                <label for="company" class="">
+                    <H3> Student Name : </H3>
+                </label>
+                <label for="company" class="">
+                    <H3>{{ student_detail.name}}</H3>
+                </label>
+
+                <div class="position-relative form-group">
+                    <label for="company" class="">
+                        <H3> Age : </H3>
+                    </label>
+                    <label for="company" class="">
+                        <H3>{{ student_detail.age}}</H3>
+                    </label>
+
+                    <div class="position-relative form-group">
+                        <label for="company" class="">
+                            <H3> Roll : </H3>
+                        </label>
+                        <label for="company" class="">
+                            <H3>{{ student_detail.roll}}</H3>
+                        </label>
+
+                        <div class="position-relative form-group">
+                            <label for="company" class="">
+                                <H3> Gender : </H3>
+                            </label>
+                            <label for="company" class="">
+                                <H3>{{ student_detail.gender}}</H3>
+                            </label>
+
+                            <div class="position-relative form-group">
+                                <label for="company" class="">
+                                    <H3> Address : </H3>
+                                </label>
+                                <label for="company" class="">
+                                    <H3>{{ student_detail.address}}</H3>
+                                </label>
+                            </div>
+
+                            <div class="position-relative form-group">
+                                <label for="company" class="">
+                                    <H3> Father Name : </H3>
+                                </label>
+                                <label for="company" class="">
+                                    <H3>{{ student_detail.father_name}}</H3>
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endblock  %}

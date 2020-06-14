@@ -1,0 +1,63 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="col-12 col-sm-12">
+    <div class="card">
+        <div class="card-header"><strong>Search Student</strong></div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <form action="" method="GET">
+                        {{forms.as_p}}
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- search end -->
+<div class="col-12 col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h3> Student List</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>age</th>
+                            <th>Role</th>
+                            <th>Class</th>
+                            <th><span class="badge badge-success">Action</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in students %}
+
+
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td><a href="{% url 'student-detail' i.student.id %}">{{i.student.name}}</td></a>
+                            <td>{{i.student.age}}</td>
+                            <td>{{i.student.roll}}</td>
+                            <td><a href="{% url 'detail-classes' i.std_class%}">{{i.std_class}}</td></a>
+                            <td>
+                                <a href="{% url 'edit-student' i.student.id %}" target=""
+                                    class="btn btn-primary">Edit</a>
+                                <a href="{% url 'delete-std' i.student.id %}" target=""
+                                    class="btn btn-danger">Delete</a>
+                            </td>
+                            {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

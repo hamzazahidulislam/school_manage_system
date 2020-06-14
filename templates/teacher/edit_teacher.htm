@@ -1,0 +1,35 @@
+{% extends "base/base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-6 m-auto">
+
+        <div class="card">
+            <div class="card-header">
+                <h2>Edit Teacher</h2>
+                <div class="card-body">
+                    <form onsubmit="return validate() " action="" method="POST">
+                        {{forms.as_p}}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function validate() {
+        var name = document.getElementById('name');
+        var gender = document.getElementById('gender');
+        var phone_number = document.getElementById('phone_number');
+        var destination = document.getElementById('destination');
+        if (name.value.trim() == "" || gender.value.trim() == "" || phone_number.value.trim() == "" || destination.value
+            .trim() == "") {
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
+{% endblock %}

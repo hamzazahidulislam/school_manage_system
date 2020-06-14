@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="container">
+        <div class="card">
+            <dicv class="card-body">
+                <form action="" method="GET">
+                    {% csrf_token %}
+                    Class: <input type="text" name="class_name" class="form-control">
+                    <br>
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </form>
+            </dicv>
+        </div>
+    </div>
+</div>
+<!-- student list -->
+{% if std_list %}
+<div class="card">
+    <div class="card-header">
+        Student List
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Roll</th>
+                <th>Class Name</th>
+                <th>Action</th>
+            </tr>
+            {% for i in std_list %}
+            <tr>
+                <td>{{i.student.name}}</td>
+                <td class="std_roll">{{i.student.roll}}</td>
+                <td class="std_cls">{{i.std_class.class_short_form}}</td>
+                <td><button class="btn btn-primary btn_class">Present</button></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</div>
+
+
+
+{% endif %}
+
+{% endblock %}
